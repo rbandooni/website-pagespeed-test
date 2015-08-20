@@ -1,0 +1,41 @@
+		body{
+			font-family: 'Open Sans', sans-serif;
+		}
+		.testUrlEle{
+			width: 300px !important;
+			font-size: 20px;
+		}
+		.testUrlEle:focus{
+			width: 350px !important;
+		}
+
+		@media only screen and (max-width: 768px){
+			.wrapper{
+				width: 100% !important;
+				margin: auto;
+			}
+		}
+		@media only screen and (max-width: 420px){
+			.search-input{
+				width: 55% !important;
+			}
+		}
+
+		.wrapper{
+			width: 70%;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.search-input-noborder{
+			border-top-left-radius: 0px !important;
+			border-bottom-left-radius: 0px !important;
+		}
+
+		.toLoad{
+			display: none !important;
+			visibility: hidden !important;
+		}
+		.loaded{
+			display: block;
+			visibility: visible;
+		}

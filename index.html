@@ -6,52 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/forms.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/whirly.css" type="text/css">
-	<style type="text/css">
-		body{
-			font-family: 'Open Sans', sans-serif;
-		}
-		.testUrlEle{
-			width: 300px !important;
-			font-size: 20px;
-		}
-		.testUrlEle:focus{
-			width: 350px !important;
-		}
-
-		@media only screen and (max-width: 768px){
-			.wrapper{
-				width: 100% !important;
-				margin: auto;
-			}
-		}
-		@media only screen and (max-width: 420px){
-			.search-input{
-				width: 55% !important;
-			}
-		}
-
-		.wrapper{
-			width: 70%;
-			margin: 0 auto;
-			text-align: center;
-		}
-		.search-input-noborder{
-			border-top-left-radius: 0px !important;
-			border-bottom-left-radius: 0px !important;
-		}
-
-		.toLoad{
-			display: none !important;
-			visibility: hidden !important;
-		}
-		.loaded{
-			display: block;
-			visibility: visible;
-		}
-	</style>
-
-
-
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
 
@@ -61,10 +16,10 @@
 			<input style="height:40px;" type="text" id="searchUrlText" name="testUrl" class="testUrlEle search-input search-input-noborder" tabindex="1" placeholder="http://www.something.com">
 
 			<button type="submit" class="search-submit" style="height:50px;">Analyze</button>
-						<div class="label-group inline">
+			<div class="label-group inline">
 				<div>Choose test preference</div>
 				<label>
-				<input type="radio" name="render" value="desktop" tabindex="1" checked>Desktop
+					<input type="radio" name="render" value="desktop" tabindex="1" checked>Desktop
 				</label>
 				<label>
 					<input type="radio" name="render" value="mobile" tabindex="1">Mobile
@@ -125,8 +80,8 @@ function executeURLParams(str)
 {
 	var urlToFetch = "https://www.googleapis.com/pagespeedonline/v2/runPagespeed";
 	// console.log(urlToFetch);
-var renderType = document.getElementsByName('render')[0].value;
-console.log(renderType)
+	var renderType = document.getElementsByName('render')[0].value;
+	console.log(renderType)
 	$.ajax({
 		url:urlToFetch,
 		method:'get',
