@@ -39,3 +39,16 @@
 			display: block;
 			visibility: visible;
 		}
+
+		.good{
+			color: #fff;
+			background: #009a2d;
+		}
+		.average{
+			color: #fff;
+			background: #fda100;
+		}
+		.bad{
+			color: #fff;
+			background: #dd4b39;
+		}

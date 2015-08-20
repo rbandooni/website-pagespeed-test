@@ -11,7 +11,7 @@
 <body>
 
 	<div id="urlBox" class="wrapper">
-		<h2 class="dark"> Enter your website URL</h2>
+		<h2> Enter your website URL</h2>
 		<form action="#" method="post" id="speedForm">
 			<input style="height:40px;" type="text" id="searchUrlText" name="testUrl" class="testUrlEle search-input search-input-noborder" tabindex="1" placeholder="http://www.something.com">
 
@@ -27,12 +27,10 @@
 			</div>
 		</form>
 		<div id="loaderDiv" style="position: relative;top: 50px;" class="whirly-loader toLoad">Loading…</div>
-		<div id="resultDiv" style="position: relative; top: 100px;">
+		<div id="resultDiv" style="position: relative; top: 50px;" class="toLoad">
 			
 			<div class="result-group">
-				<h2 class="result-group-title">
-
-				</h2>
+<h2 style="width: 41%" id="speedStat">Your Page Speed Score is <score/> </h2>
 			</div>
 
 		</div>
@@ -42,77 +40,5 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/sweetalert2.css">
 <script type="text/javascript" src="js/sweetalert2.min.js"></script>
-<script type="text/javascript">
-// url = https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https://developers.google.com/speed/pagespeed/insights/&strategy=mobile&key=AIzaSyBCCOfu44WceqGo1JeREqBp5ymxtceBzSs	
-
-function validateUrl(str)
-{
-	// swal(str);
-	if(str=='')
-	{
-		swal('Please enter a URL');
-		$('#loaderDiv').addClass('toLoad');
-	}else{
-
-		var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
-		if (!re.test(str)) { 
-			swal("url error");
-			return false;
-		}else{
-//  check if http is present
-str = checkHttp(str);
-
-executeURLParams(str);
-}
-
-}
-
-}
-
-function checkHttp(url) {
-	if (!/^(f|ht)tps?:\/\//i.test(url)) {
-		url = "http://" + url;
-	}
-	return url;
-}
-
-function executeURLParams(str)
-{
-	var urlToFetch = "https://www.googleapis.com/pagespeedonline/v2/runPagespeed";
-	// console.log(urlToFetch);
-	var renderType = document.getElementsByName('render')[0].value;
-	console.log(renderType)
-	$.ajax({
-		url:urlToFetch,
-		method:'get',
-		dataType:'json',
-		data:'url='+str+'/&strategy=mobile&key=AIzaSyBCCOfu44WceqGo1JeREqBp5ymxtceBzSs',
-		beforeSend: function(){
-			document.getElementById('searchUrlText').disabled = true;
-			//$('#loaderDiv').addClass('toLoad');
-		},
-		success: function(ret){
-			document.getElementById('searchUrlText').disabled = false;
-			$('#loaderDiv').addClass('toLoad');
-			console.log(ret);
-		},
-		error: function(){
-			document.getElementById('searchUrlText').disabled = false;
-			$('#loaderDiv').addClass('toLoad');
-			swal('DNS error while resolving the given URL');
-		}
-	});
-
-}
-
-
-$(function(){
-	$('#speedForm').on('submit',function(evt){
-		$('#loaderDiv').removeClass('toLoad');
-		evt.preventDefault();
-		validateUrl($('.testUrlEle').val());
-	})
-})
-
-</script>
+<script type="text/javascript" src="js/custom.js"></script>
 </html>
